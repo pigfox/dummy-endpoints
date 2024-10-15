@@ -2,7 +2,9 @@ package structs
 
 import "math/rand"
 
-const ResponseRowsPerServer = 500
+const ResponseRowsPerServer = 3
+const PriceDifferencePct = 5
+const RequestTimeOut = 3
 
 type Ports struct {
 	Min      int   `json:"min"`

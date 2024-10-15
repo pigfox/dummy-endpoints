@@ -20,7 +20,7 @@ func MakeWG(url string) ([]structs.Response, error) {
 	}
 
 	// Set timeout context
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), structs.RequestTimeOut*time.Millisecond)
 	defer cancel()
 
 	// Make the request
