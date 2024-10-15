@@ -8,9 +8,11 @@ import (
 	"math"
 	"sort"
 	"sync"
+	"time"
 )
 
 func main() {
+	beginTime := time.Now()
 	beginPort := structs.GetPorts().Min
 	endPort := structs.GetPorts().Max
 
@@ -85,4 +87,7 @@ func main() {
 			}
 		}
 	}
+	fmt.Println("Total time taken: ", time.Since(beginTime))
+	fmt.Println("Total number of responses: ", len(allResponses))
+	fmt.Println("Total number of ports(servers): ", endPort-beginPort+1)
 }
