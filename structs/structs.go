@@ -2,14 +2,14 @@ package structs
 
 import "math/rand"
 
-const ResponseRowsPerServer = 3
+const ResponseRowsPerServer = 500 //Simulating returned number of tokens by DEX
 const PriceDifferencePct = 5
-const RequestTimeOut = 3
+const RequestTimeOut = 5
 
 type Ports struct {
-	Min      int   `json:"min"`
-	Max      int   `json:"max"`
-	Excluded []int `json:"excluded"`
+	Min    int   `json:"min"`
+	Max    int   `json:"max"`
+	Failed []int `json:"excluded"`
 }
 
 type Response struct {
@@ -20,17 +20,10 @@ type Response struct {
 }
 
 func GetPorts() Ports {
-	/*
-		return Ports{
-			Min:      10001,
-			Max:      10999,
-			Excluded: []int{10002, 10003, 10064, 10088, 10089},
-		}
-	*/
 	return Ports{
-		Min:      10001,
-		Max:      10011,
-		Excluded: []int{10002, 10003, 10028},
+		Min:    10001,                      //Simulating server 1
+		Max:    10015,                      //Simulating server 15
+		Failed: []int{10002, 10003, 10010}, //Simulating failed ports
 	}
 }
 

@@ -76,8 +76,12 @@ func main() {
 			diffPct := math.Abs(price2-price1) / price1
 
 			if diffPct > priceDifferenceThreshold {
+				port1 := responses[i-1].Message
+				port2 := responses[i].Message
+				//add output indication from which ports the prices are coming from
 				fmt.Printf("Significant price difference found at Address: %s\n", address)
-				fmt.Printf("Price1: %d, Price2: %d, Difference: %.2f%%\n", int(price1), int(price2), diffPct*100)
+				fmt.Printf("Port1: %s, Price1: %d, Port2: %s, Price2: %d, Difference: %.2f%%\n",
+					port1, int(price1), port2, int(price2), diffPct*100)
 			}
 		}
 	}

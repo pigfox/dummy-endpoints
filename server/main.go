@@ -40,7 +40,7 @@ func main() {
 	}
 
 	for port := beginPort; port <= endPort; port++ {
-		if !structs.Contains(structs.GetPorts().Excluded, port) {
+		if !structs.Contains(structs.GetPorts().Failed, port) {
 			go func(p int) {
 				// Create a new mux for each server
 				mux := http.NewServeMux()
